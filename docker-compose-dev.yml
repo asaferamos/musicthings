@@ -1,0 +1,26 @@
+version: '3'
+services:
+  app:
+    build: .
+    container_name: musicthings_app
+    environment:
+      - RAILS_ENV=development
+      - DB_DATABASE=inc_development
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - DB_HOST=db
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    # tty: true
+    # stdin_open: true
+  #   depends_on:
+  #     - redis
+  # redis:
+  #   image: redis
+  #   container_name: inc_redis
+  #   volumes:
+  #     - ./data/redis:/data
+  #   ports:
+  #     - 6379:6379
